@@ -27,6 +27,9 @@ const Dashboard = () => {
     <ApexChartWrapper>
       <Grid container spacing={6}>
         <Grid item xs={12} md={4}>
+          WELCOME TO LOOM
+        </Grid>
+        {/* <Grid item xs={12} md={4}>
           <Trophy />
         </Grid>
         <Grid item xs={12} md={8}>
@@ -92,7 +95,7 @@ const Dashboard = () => {
         </Grid>
         <Grid item xs={12}>
           <Table />
-        </Grid>
+        </Grid> */}
       </Grid>
     </ApexChartWrapper>
   )
