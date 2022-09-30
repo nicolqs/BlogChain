@@ -38,18 +38,10 @@ type ExtendedAppProps = AppProps & {
 }
 
 // ** UseDapp import
-import { Mainnet, DAppProvider, Config, Goerli } from '@usedapp/core'
-import { getDefaultProvider } from 'ethers'
+import { DAppProvider } from '@usedapp/core'
 
-// import { MetamaskConnect } from './components/MetamaskConnect'
-
-const config: Config & {readOnlyUrls: object} = {
-  readOnlyChainId: Mainnet.chainId,
-  readOnlyUrls: {
-    [Mainnet.chainId]: getDefaultProvider('mainnet'),
-    [Goerli.chainId]: getDefaultProvider('goerli'),
-  },
-}
+// ** Web3 Configs
+import config from 'src/configs/web3Config';
 
 const clientSideEmotionCache = createEmotionCache()
 

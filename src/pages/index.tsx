@@ -5,6 +5,9 @@ import CardContent from '@mui/material/CardContent'
 
 // import { useTheme } from '@mui/material/styles'
 
+// ** UseDapp import
+import { useEthers, useEtherBalance } from "@usedapp/core";
+
 // ** Icons Imports
 // import Poll from 'mdi-material-ui/Poll'
 // import CurrencyUsd from 'mdi-material-ui/CurrencyUsd'
@@ -33,26 +36,36 @@ import DemoCard from 'src/components/views/dashboard/DemoCard'
 
 const Dashboard = () => {
   // const theme = useTheme();
+    const { account, chainId } = useEthers();
+    const ethbalance = useEtherBalance(account);
 
   return (
     <ApexChartWrapper>
       <Grid container spacing={6}>
         <Grid item xs={12} md={6} lg={4}>
-        <Card>
-          <Grid container spacing={6} >
-            <Grid item xs={12} >
-              <CardContent sx={{ padding: theme => `${theme.spacing(3.25, 5.75, 6.25)} !important` }}>
-                <Typography variant='h6' sx={{ marginBottom: 3.5 }}>
-                  Welcome to EasyDapp
-                </Typography>
-                <Typography variant='body2'>
-                  Bootstrap your Dapp in a heartbeat.
-
-                </Typography>
-              </CardContent>
+          <Card>
+            <Grid container spacing={6} >
+              <Grid item xs={12} >
+                <CardContent sx={{ padding: theme => `${theme.spacing(3.25, 5.75, 6.25)} !important` }}>
+                  <Typography variant='h6' sx={{ mb: 3.5 }}>
+                    Welcome to EasyDapp
+                  </Typography>
+                  <Typography variant='body2' sx={{ mb: 4 }}>
+                    Bootstrap your Dapp in a heartbeat.
+                  </Typography>
+                  <Typography variant='body2' sx={{ mb: 1 }}>
+                    Chain ID {chainId}
+                  </Typography>
+                  <Typography variant='body2' sx={{ mb: 1 }}>
+                    Account {account}
+                  </Typography>
+                  <Typography variant='body2' sx={{ mb: 1 }}>
+                    Balance {ethbalance}
+                  </Typography>
+                </CardContent>
+              </Grid>
             </Grid>
-          </Grid>
-        </Card>
+          </Card>
         </Grid>
         {/*<Grid item xs={12} md={8}>*/}
         {/*  <StatisticsCard />*/}

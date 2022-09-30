@@ -1,24 +1,30 @@
+# EasyDapp (Beta) [![Styled with Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io) [![Commitizen Friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
+
 Bootstrap your Dapp in a heartbeat
 
-This project is using
+If something doesn’t work, please [file an issue](https://github.com/nicolqs/dapp/issues/new).<br>
+
+![Dashboard](./public/images/dashboard.png)
+
+### Based on
 - Next.js
 - React + Typescript
 - Material UI
 - create-eth-app
 - usedapp
 
-![Dashboard](./public/images/dashboard.png)
 
 ## Get started
 ```sh
 yarn install
 yarn dev
 ```
+Go to [http://localhost:3000/](http://localhost:3000/)
 
 ## To deploy
 ```sh
 yarn build
-```
+``` 
 
 
 
