@@ -7,12 +7,19 @@ This project is using
 - create-eth-app
 - usedapp
 
+![Dashboard](./public/images/dashboard.png)
 
 ## Get started
 ```sh
 yarn install
 yarn dev
 ```
+
+## To deploy
+```sh
+yarn build
+```
+
 
 
 ## Project Structure

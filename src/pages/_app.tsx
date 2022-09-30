@@ -38,9 +38,9 @@ type ExtendedAppProps = AppProps & {
 }
 
 // ** UseDapp import
-import { Mainnet, DAppProvider, useEtherBalance, useEthers, Config, Goerli } from '@usedapp/core'
-import { formatEther } from '@ethersproject/units'
+import { Mainnet, DAppProvider, Config, Goerli } from '@usedapp/core'
 import { getDefaultProvider } from 'ethers'
+
 // import { MetamaskConnect } from './components/MetamaskConnect'
 
 const config: Config & {readOnlyUrls: object} = {
@@ -68,31 +68,6 @@ if (themeConfig.routingLoader) {
 
 type ChildrenNodeType = {
   children: ReactNode;
-}
-
-const LoomApp = (props: ChildrenNodeType) => {
-  const { account, deactivate, chainId } = useEthers()
-  const etherBalance = useEtherBalance(account);
-
-  if (chainId === undefined || !config.readOnlyUrls[chainId]) {
-    return <p>Please use either Mainnet or Goerli testnet.</p>
-  }
-
-  return (
-    <div>
-      {/* <MetamaskConnect /> */}
-      <h1>Nico</h1>
-      {account && <button onClick={() => deactivate()}>Disconnect</button>}
-      {etherBalance && (
-        <div className="balance">
-          <br />
-          Balance:
-          <p className="bold">{formatEther(etherBalance)}</p>
-        </div>
-      )}
-      {props.children}
-    </div>
-  )
 }
 
 const Web3Provider = (props: ChildrenNodeType) => {

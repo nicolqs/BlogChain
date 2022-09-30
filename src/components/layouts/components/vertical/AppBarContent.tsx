@@ -34,7 +34,8 @@ interface Props {
 }
 
 const ConnectWallet = () => {
-  const { activateBrowserWallet, account, deactivate } = useEthers()
+  const { activateBrowserWallet, account, deactivate } = useEthers();
+
     return (
       <Box>
         <Box>
@@ -48,7 +49,7 @@ const ConnectWallet = () => {
         </Box>
         <Typography variant='subtitle1' sx ={{margin:0}}>
         {account && <Box>
-          <Chip label={`${account.substring(0, 6)}...${account.substring(
+          <Chip sx={{ display: { xs: 'none', sm: 'none' } }} label={`${account.substring(0, 6)}...${account.substring(
                     account.length - 4
                   )}`}
                   variant="outlined" />
