@@ -2,7 +2,7 @@
 import { ReactNode } from 'react'
 
 // ** Layout Import
-import BlankLayout from 'src/@core/layouts/BlankLayout'
+import BlankLayout from 'src/components/@core/layouts/BlankLayout'
 
 // ** Component Import
 import Error404 from 'src/pages/404'

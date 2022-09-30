@@ -34,10 +34,10 @@ import EyeOffOutline from 'mdi-material-ui/EyeOffOutline'
 import themeConfig from 'src/configs/themeConfig'
 
 // ** Layout Import
-import BlankLayout from 'src/@core/layouts/BlankLayout'
+import BlankLayout from 'src/components/@core/layouts/BlankLayout'
 
 // ** Demo Imports
-import FooterIllustrationsV1 from 'src/views/pages/auth/FooterIllustration'
+import FooterIllustrationsV1 from 'src/components/views/pages/auth/FooterIllustration'
 
 interface State {
   password: string
