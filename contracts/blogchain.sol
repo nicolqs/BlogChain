@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.17;
+pragma solidity >=0.4.22 <0.9.0;
 
 contract BlogChain {
   struct Tweet {
@@ -16,13 +16,12 @@ contract BlogChain {
   event TweetCreated(address author, string content, uint256 timestamp, uint256 id);
 
   function writeTweet(string calldata _content) external {
-    // Create new Tweet and add it to array of tweets
-    Tweet memory newTweet = Tweet(msg.sender, _content, block.timestamp, nextTweetId);
-    tweets.push(newTweet);
-
-    // Emit an event - can be used by the front-end to display new tweets in real-time
+    tweets.push(Tweet(msg.sender, _content, block.timestamp, nextTweetId));
     emit TweetCreated(msg.sender, _content, block.timestamp, nextTweetId);
-
     nextTweetId++;
+  }
+
+  function readTweets() external view returns (Tweet[] memory) {
+    return tweets;
   }
 }
