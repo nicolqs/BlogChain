@@ -25,13 +25,13 @@ async function main() {
 
   console.log('BlogChain address:', blogChain.address)
 
-  // We also save the contract's artifacts and address in the frontend directory
+  // We also save the contract's artifacts and address in the src/contracts/ directory
   saveFrontendFiles(blogChain)
 }
 
 function saveFrontendFiles(blogChain) {
   const fs = require('fs')
-  const contractsDir = path.join(__dirname, '..', 'frontend', 'src', 'contracts')
+  const contractsDir = path.join(__dirname, '..', 'src', 'contracts')
 
   if (!fs.existsSync(contractsDir)) {
     fs.mkdirSync(contractsDir)
