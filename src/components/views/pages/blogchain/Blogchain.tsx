@@ -22,11 +22,11 @@ import Typography from '@mui/material/Typography'
 import { contract } from 'src/configs/web3Config'
 
 // ** Types
-type Props = {
-  tweet: ITweet
+interface Props {
+  tweet: Tweet
 }
 
-interface ITweet {
+type Tweet = {
   id: number
   author: string
   content: string
@@ -70,10 +70,8 @@ const TweetCard = ({ tweet }: Props) => (
 )
 
 const Blogchain = () => {
-  const theme = useTheme()
-
   const [tweet, setTweet] = useState('')
-  const [tweets, setTweets] = useState<ITweet[]>()
+  const [tweets, setTweets] = useState<Tweet[]>()
 
   useEffect(() => {
     refreshTweets()
@@ -83,9 +81,9 @@ const Blogchain = () => {
     setTweet(event.target.value)
   }
 
-  const saveTweets = (tweets: ITweet) => {
+  const saveTweets = (tweets: Tweet) => {
     const reversedValues = Object.values(tweets).reverse()
-    const orderedTweets = []
+    const orderedTweets: Tweet[] = []
 
     for (const value of reversedValues) {
       orderedTweets.push(value)
