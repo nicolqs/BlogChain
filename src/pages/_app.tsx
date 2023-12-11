@@ -41,7 +41,7 @@ type ExtendedAppProps = AppProps & {
 import { DAppProvider } from '@usedapp/core'
 
 // ** Web3 Configs
-import config from 'src/configs/web3Config';
+import { config } from 'src/configs/web3Config'
 
 const clientSideEmotionCache = createEmotionCache()
 
@@ -59,13 +59,11 @@ if (themeConfig.routingLoader) {
 }
 
 type ChildrenNodeType = {
-  children: ReactNode;
+  children: ReactNode
 }
 
 const Web3Provider = (props: ChildrenNodeType) => {
-  return <DAppProvider config={config}>
-      {props.children}
-    </DAppProvider>;
+  return <DAppProvider config={config}>{props.children}</DAppProvider>
 }
 
 // ** Configure JSS & ClassName
@@ -89,11 +87,13 @@ const App = (props: ExtendedAppProps) => {
 
       <SettingsProvider>
         <SettingsConsumer>
-            {({ settings }) => {
-              return <Web3Provider>
-                  <ThemeComponent settings={settings}>{getLayout(<Component {...pageProps} />)}</ThemeComponent>
-                </Web3Provider>
-            }}
+          {({ settings }) => {
+            return (
+              <Web3Provider>
+                <ThemeComponent settings={settings}>{getLayout(<Component {...pageProps} />)}</ThemeComponent>
+              </Web3Provider>
+            )
+          }}
         </SettingsConsumer>
       </SettingsProvider>
     </CacheProvider>

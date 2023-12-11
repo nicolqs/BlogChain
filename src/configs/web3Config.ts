@@ -1,13 +1,16 @@
+import { ethers } from 'ethers'
+import BlogChain from 'frontend/src/contracts/BlogChain.json'
+import contractAddress from 'frontend/src/contracts/contract-address.json'
+import web3config from './web3config.json'
+
 // ** UseDapp Imports
 import { ChainId, Config, Hardhat, Mainnet } from '@usedapp/core'
-
-const INFURA_PROJECT_ID = process.env.INFURA_KEY
 
 const config: Config = {
   networks: [Mainnet, Hardhat],
   readOnlyChainId: ChainId.Hardhat,
   readOnlyUrls: {
-    [Mainnet.chainId]: 'https://mainnet.infura.io/v3/' + INFURA_PROJECT_ID,
+    [Mainnet.chainId]: 'https://mainnet.infura.io/v3/' + web3config.infuraKey,
     [ChainId.Hardhat]: 'http://localhost:8545'
   },
   multicallAddresses: {
@@ -15,4 +18,9 @@ const config: Config = {
   }
 }
 
-export default config
+// ** Web3 connect
+const provider = new ethers.providers.JsonRpcProvider('http://localhost:8545')
+const wallet = new ethers.Wallet(web3config.privateKey, provider)
+const contract = new ethers.Contract(contractAddress.BlogChain, BlogChain.abi, wallet)
+
+export { config, contract }
