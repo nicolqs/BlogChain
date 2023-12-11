@@ -46,14 +46,14 @@ Go to [http://localhost:3000/](http://localhost:3000/)
 
 ```my-eth-app
 ├── README.md
-├── frontend // smart contract ABI
 ├── contracts // smart contract solidity code
 ├── node_modules
 ├── package.json
 ├── public
 ├── src
     ├── components // React components
-    └── configs //  theme & web3 configs
+    └── configs
+    └── contracts // smart contract ABI
     └── pages // Next.js automated dynamic Routes
 ├── styles
 ├── tsconfig.json

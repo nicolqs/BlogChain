@@ -1,7 +1,6 @@
 import { useState, useEffect, ChangeEvent } from 'react'
 
 // ** MUI Imports
-import { useTheme } from '@mui/material/styles'
 import Avatar from '@mui/material/Avatar'
 import Grid from '@mui/material/Grid'
 import Card from '@mui/material/Card'
@@ -26,7 +25,7 @@ interface Props {
   tweet: Tweet
 }
 
-type Tweet = {
+interface Tweet {
   id: number
   author: string
   content: string
@@ -75,7 +74,7 @@ const Blogchain = () => {
 
   useEffect(() => {
     refreshTweets()
-  }, [])
+  })
 
   const handleTweetChange = (event: ChangeEvent<HTMLInputElement>) => {
     setTweet(event.target.value)
@@ -173,7 +172,7 @@ const Blogchain = () => {
           </Grid>
         </Card>
       </Grid>
-      {tweets && [...tweets].map(tweet => <TweetCard tweet={tweet} />)}
+      {tweets && [...tweets].map(tweet => <TweetCard key={tweet.id} tweet={tweet} />)}
     </>
   )
 }
