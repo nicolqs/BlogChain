@@ -20,7 +20,7 @@ const config: Config = {
 
 // ** Web3 connect
 const provider = new ethers.providers.JsonRpcProvider('http://localhost:8545')
-const wallet = new ethers.Wallet(web3config.privateKey, provider)
-const contract = new ethers.Contract(contractAddress.BlogChain, BlogChain.abi, wallet)
+const signer = provider.getSigner()
+const contract = new ethers.Contract(contractAddress.BlogChain, BlogChain.abi, signer)
 
 export { config, contract }

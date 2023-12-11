@@ -8,8 +8,8 @@ import InputAdornment from '@mui/material/InputAdornment'
 import Typography from '@mui/material/Typography'
 import Chip from '@mui/material/Chip'
 import Tooltip from '@mui/material/Tooltip'
-import CreditCardOffIcon from "@mui/icons-material/CreditCardOff";
-import CreditCardIcon from "@mui/icons-material/CreditCard";
+import CreditCardOffIcon from '@mui/icons-material/CreditCardOff'
+import CreditCardIcon from '@mui/icons-material/CreditCard'
 
 // ** Icons Imports
 import Menu from 'mdi-material-ui/Menu'
@@ -24,7 +24,7 @@ import UserDropdown from 'src/components/@core/layouts/components/shared-compone
 import NotificationDropdown from 'src/components/@core/layouts/components/shared-components/NotificationDropdown'
 
 // ** UseDapp
-import { useEthers } from '@usedapp/core';
+import { useEthers } from '@usedapp/core'
 
 interface Props {
   hidden: boolean
@@ -34,36 +34,39 @@ interface Props {
 }
 
 const ConnectWallet = () => {
-  const { activateBrowserWallet, account, deactivate } = useEthers();
+  const { activateBrowserWallet, account, deactivate } = useEthers()
 
-    return (
+  return (
+    <Box>
       <Box>
-        <Box>
-          {!account && <Box>
-              <Tooltip title="Connect Wallet">
-                <IconButton onClick={() => activateBrowserWallet()} sx={{ ml: 1 }}>
-                  <CreditCardIcon fontSize="small" />
-                </IconButton>
-              </Tooltip>
-            </Box>}
-        </Box>
-        <Typography variant='subtitle1' sx ={{margin:0}}>
-        {account && <Box>
-          <Chip sx={{ display: { xs: 'none', sm: 'none' } }} label={`${account.substring(0, 6)}...${account.substring(
-                    account.length - 4
-                  )}`}
-                  variant="outlined" />
-            <Tooltip title="Disconnect Wallet">
-              <IconButton onClick={deactivate} sx={{ ml: 1 }}>
-                <CreditCardOffIcon fontSize="small" />
+        {!account && (
+          <Box>
+            <Tooltip title='Connect Wallet'>
+              <IconButton onClick={() => activateBrowserWallet()} sx={{ ml: 1 }}>
+                <CreditCardIcon fontSize='small' />
               </IconButton>
             </Tooltip>
           </Box>
-
-        }
-        </Typography>
+        )}
       </Box>
-    )
+      <Typography variant='subtitle1' sx={{ margin: 0 }}>
+        {account && (
+          <Box>
+            <Chip
+              sx={{ display: { xs: 'none', sm: 'none' } }}
+              label={`${account.substring(0, 6)}...${account.substring(account.length - 4)}`}
+              variant='outlined'
+            />
+            <Tooltip title='Disconnect Wallet'>
+              <IconButton onClick={deactivate} sx={{ ml: 1 }}>
+                <CreditCardOffIcon fontSize='small' />
+              </IconButton>
+            </Tooltip>
+          </Box>
+        )}
+      </Typography>
+    </Box>
+  )
 }
 
 const AppBarContent = (props: Props) => {
