@@ -1,7 +1,9 @@
 // ** Icon imports
-import Login from 'mdi-material-ui/Login'
+// import Login from 'mdi-material-ui/Login'
+
 import HomeOutline from 'mdi-material-ui/HomeOutline'
-import AccountCogOutline from 'mdi-material-ui/AccountCogOutline'
+
+// import AccountCogOutline from 'mdi-material-ui/AccountCogOutline'
 
 // import CreditCardOutline from 'mdi-material-ui/CreditCardOutline'
 // import AccountPlusOutline from 'mdi-material-ui/AccountPlusOutline'
@@ -20,21 +22,22 @@ const navigation = (): VerticalNavItemsType => {
       title: 'Dashboard',
       icon: HomeOutline,
       path: '/'
-    },
-    {
-      title: 'Account Settings',
-      icon: AccountCogOutline,
-      path: '/account-settings'
-    },
-    {
-      sectionTitle: 'Pages'
-    },
-    {
-      title: 'Login',
-      icon: Login,
-      path: '/pages/login',
-      openInNewTab: true
-    },
+    }
+
+    // {
+    //   title: 'Account Settings',
+    //   icon: AccountCogOutline,
+    //   path: '/account-settings'
+    // }
+    // {
+    //   sectionTitle: 'Pages'
+    // }
+    // {
+    //   title: 'Login',
+    //   icon: Login,
+    //   path: '/pages/login',
+    //   openInNewTab: true
+    // },
 
     // {
     //   title: 'Register',

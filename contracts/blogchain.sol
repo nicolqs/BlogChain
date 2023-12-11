@@ -24,4 +24,7 @@ contract BlogChain {
   function readTweets() external view returns (Tweet[] memory) {
     return tweets;
   }
+  function emptyTweets() external {
+    delete tweets;
+  }
 }
