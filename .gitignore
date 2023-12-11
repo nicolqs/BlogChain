@@ -50,6 +50,3 @@ yarn-error.log*
 # solidity-coverage files
 /coverage
 /coverage.json
-
-# web3 conf
-src/configs/web3config.json

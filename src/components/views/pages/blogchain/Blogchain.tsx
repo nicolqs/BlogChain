@@ -72,9 +72,13 @@ const Blogchain = () => {
   const [tweet, setTweet] = useState('')
   const [tweets, setTweets] = useState<Tweet[]>()
 
-  useEffect(() => {
-    refreshTweets()
-  })
+  useEffect(
+    () => {
+      refreshTweets()
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  )
 
   const handleTweetChange = (event: ChangeEvent<HTMLInputElement>) => {
     setTweet(event.target.value)
@@ -161,11 +165,11 @@ const Blogchain = () => {
                       Post
                     </Button>
                   </Grid>
-                  <Grid item>
+                  {/* <Grid item>
                     <Button variant='contained' color='secondary' onClick={refreshTweets}>
                       Refresh
                     </Button>
-                  </Grid>
+                  </Grid> */}
                 </Grid>
               </CardContent>
             </Grid>
