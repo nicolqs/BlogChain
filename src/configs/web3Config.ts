@@ -1,7 +1,6 @@
 import { ethers } from 'ethers'
 import BlogChain from 'src/contracts/BlogChain.json'
 import contractAddress from 'src/contracts/contract-address.json'
-import web3config from './web3config.json'
 
 // ** UseDapp Imports
 import { ChainId, Config, Hardhat, Mainnet } from '@usedapp/core'
@@ -10,7 +9,7 @@ const config: Config = {
   networks: [Mainnet, Hardhat],
   readOnlyChainId: ChainId.Hardhat,
   readOnlyUrls: {
-    [Mainnet.chainId]: 'https://mainnet.infura.io/v3/' + web3config.infuraKey,
+    [Mainnet.chainId]: 'https://mainnet.infura.io/v3/' + process.env.NEXT_PUBLIC_INFURA_KEY,
     [ChainId.Hardhat]: 'http://localhost:8545'
   },
   multicallAddresses: {
