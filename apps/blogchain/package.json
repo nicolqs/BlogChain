@@ -23,8 +23,6 @@
     "@usedapp/core": "^1.1.5",
     "ethers": "^5.6.9",
     "mdi-material-ui": "^7.1.0",
-    "@mdi/js": "7.4.47",
-    "@mdi/react": "1.6.1",
     "nprogress": "^0.2.0",
     "react-datepicker": "^4.5.0",
     "react-perfect-scrollbar": "^1.5.8",
@@ -44,8 +42,6 @@
     "eslint-plugin-import": "^2.25.4",
     "next-transpile-modules": "^9.0.0",
     "prettier": "2.5.1",
-    "ts-node": "^10.9.2",
-    "typechain": "^8.3.2",
     "typescript": "4.5.2"
   }
 }

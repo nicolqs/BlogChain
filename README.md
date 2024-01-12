@@ -12,7 +12,7 @@ Welcome to the GitHub repository for BlogChain, an innovative microblogging serv
 
 This App emulates the core features of traditional microblogging services like Twitter, but operates entirely on the Ethereum blockchain. By leveraging blockchain technology, this service ensures security, transparency, and independence from centralized control.
 
-![Dashboard](./public/images/dashboard.png)
+![Dashboard](./apps/blogchain/public/images/dashboard.png)
 
 ### Technology and Tools
 
@@ -20,7 +20,8 @@ This App emulates the core features of traditional microblogging services like T
 - React + Typescript
 - Material UI
 - ethers.js
-- Hardhat
+- [Hardhat](https://hardhat.org/)
+- [Turborepo](https://turbo.build/repo/docs) build system optimized for TypeScript codebases
 
 ## Get started
 
@@ -31,6 +32,7 @@ yarn install
 ## Local blockchain
 
 ```sh
+$ cd packages/solidity-contracts
 $ npx hardhat node --fork https://mainnet.infura.io/v3/YOUR_INFURA_API_KEY
 $ npx hardhat --network localhost run scripts/deploy.ts
 ```
