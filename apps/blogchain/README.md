@@ -20,7 +20,6 @@ This App emulates the core features of traditional microblogging services like T
 - React + Typescript
 - Material UI
 - ethers.js
-- Hardhat
 
 ## Get started
 
@@ -51,17 +50,11 @@ Go to [http://localhost:3000/](http://localhost:3000/)
 ├── node_modules
 ├── package.json
 ├── public
-├── apps // running apps or services (backend and frontend)
-    ├── blogchain
-        ├── src
-            ├── components // React components
-            └── configs
-            └── pages // Next.js automated dynamic Routes
-├── packages // packages used by our apps
-    ├── packages
-        ├── solidity-contracts
-            ├── abis
-            ├── contracts // smart contract ABI
+├── src
+    ├── components // React components
+    └── configs
+    └── contracts // smart contract ABI
+    └── pages // Next.js automated dynamic Routes
 ├── styles
 ├── tsconfig.json
 ```
