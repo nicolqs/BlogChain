@@ -99,7 +99,7 @@ const Blogchain = () => {
       const tweets = await contract.readTweets()
       saveTweets(tweets)
 
-      console.log('Tweets:', tweets)
+      // console.log('Tweets:', tweets)
     } catch (error) {
       console.error('Error reading tweets:', error)
     }
@@ -110,7 +110,7 @@ const Blogchain = () => {
       const tx = await contract.writeTweet(tweet)
       await tx.wait() // Wait for the transaction to be mined
 
-      console.log('Tweet written:', tx.hash)
+      // console.log('Tweet written:', tx.hash)
 
       const tweets = await contract.readTweets()
       saveTweets(tweets)
