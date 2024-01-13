@@ -1,43 +1,41 @@
 // ** React Imports
-import { ElementType, ReactNode } from 'react';
+import { ElementType, ReactNode } from 'react'
 
 // ** Next Imports
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/router'
 
 // ** MUI Imports
-import Chip from '@mui/material/Chip';
-import ListItem from '@mui/material/ListItem';
-import { styled } from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
-import Box, { BoxProps } from '@mui/material/Box';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemButton, {
-  ListItemButtonProps
-} from '@mui/material/ListItemButton';
-import SvgIcon from '@mui/material/SvgIcon';
+import Chip from '@mui/material/Chip'
+import ListItem from '@mui/material/ListItem'
+import { styled } from '@mui/material/styles'
+import Typography from '@mui/material/Typography'
+import Box, { BoxProps } from '@mui/material/Box'
+import ListItemIcon from '@mui/material/ListItemIcon'
+import ListItemButton, { ListItemButtonProps } from '@mui/material/ListItemButton'
+import SvgIcon from '@mui/material/SvgIcon'
 
 // ** Configs Import
-import themeConfig from 'src/configs/themeConfig';
+import themeConfig from 'src/configs/themeConfig'
 
 // ** Types
-import { NavLink } from 'src/components/@core/layouts/types';
-import { Settings } from 'src/components/@core/context/settingsContext';
+import { NavLink } from 'src/components/@core/layouts/types'
+import { Settings } from 'src/components/@core/context/settingsContext'
 
 // ** Utils
-import { handleURLQueries } from 'src/components/@core/layouts/utils';
+import { handleURLQueries } from 'src/components/@core/layouts/utils'
 
 interface Props {
-  item: NavLink;
-  settings: Settings;
-  navVisible?: boolean;
-  toggleNavVisibility: () => void;
+  item: NavLink
+  settings: Settings
+  navVisible?: boolean
+  toggleNavVisibility: () => void
 }
 
 // ** Styled Components
 const MenuNavLink = styled(ListItemButton)<
   ListItemButtonProps & {
-    component?: ElementType;
-    target?: '_blank' | undefined;
+    component?: ElementType
+    target?: '_blank' | undefined
   }
 >(({ theme }) => ({
   width: '100%',
@@ -53,7 +51,7 @@ const MenuNavLink = styled(ListItemButton)<
   '&.active .MuiTypography-root, &.active .MuiSvgIcon-root': {
     color: `${theme.palette.common.white} !important`
   }
-}));
+}))
 
 const MenuItemTextMetaWrapper = styled(Box)<BoxProps>({
   width: '100%',
@@ -62,21 +60,21 @@ const MenuItemTextMetaWrapper = styled(Box)<BoxProps>({
   justifyContent: 'space-between',
   transition: 'opacity .25s ease-in-out',
   ...(themeConfig.menuTextTruncate && { overflow: 'hidden' })
-});
+})
 
 const VerticalNavLink = ({ item, navVisible, toggleNavVisibility }: Props) => {
   // ** Hooks
-  const router = useRouter();
+  const router = useRouter()
 
-  const IconTag: ReactNode | typeof SvgIcon = item.icon;
+  const IconTag: ReactNode | typeof SvgIcon = item.icon
 
   const isNavLinkActive = () => {
     if (router.pathname === item.path || handleURLQueries(router, item.path)) {
-      return true;
+      return true
     } else {
-      return false;
+      return false
     }
-  };
+  }
 
   return (
     <ListItem
@@ -89,13 +87,13 @@ const VerticalNavLink = ({ item, navVisible, toggleNavVisibility }: Props) => {
         component={'a'}
         className={isNavLinkActive() ? 'active' : ''}
         {...(item.openInNewTab ? { target: '_blank' } : null)}
-        onClick={(e) => {
+        onClick={e => {
           if (item.path === undefined) {
-            e.preventDefault();
-            e.stopPropagation();
+            e.preventDefault()
+            e.stopPropagation()
           }
           if (navVisible) {
-            toggleNavVisibility();
+            toggleNavVisibility()
           }
         }}
         sx={{
@@ -112,9 +110,7 @@ const VerticalNavLink = ({ item, navVisible, toggleNavVisibility }: Props) => {
         ></ListItemIcon>
 
         <MenuItemTextMetaWrapper>
-          <Typography {...(themeConfig.menuTextTruncate && { noWrap: true })}>
-            {item.title}
-          </Typography>
+          <Typography {...(themeConfig.menuTextTruncate && { noWrap: true })}>{item.title}</Typography>
           {item.badgeContent ? (
             <Chip
               label={item.badgeContent}
@@ -130,7 +126,7 @@ const VerticalNavLink = ({ item, navVisible, toggleNavVisibility }: Props) => {
         </MenuItemTextMetaWrapper>
       </MenuNavLink>
     </ListItem>
-  );
-};
+  )
+}
 
-export default VerticalNavLink;
+export default VerticalNavLink

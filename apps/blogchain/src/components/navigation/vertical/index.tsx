@@ -1,7 +1,7 @@
 // ** Icon imports
 // import Login from 'mdi-material-ui/Login'
 // import homeoutline from '../../../../public/images/pages/auth-v1-tree.png';
-import HomeOutline from 'mdi-material-ui/HomeOutline';
+import HomeOutline from 'mdi-material-ui/HomeOutline'
 
 // import AccountCogOutline from 'mdi-material-ui/AccountCogOutline'
 
@@ -14,7 +14,7 @@ import HomeOutline from 'mdi-material-ui/HomeOutline';
 // import FormatLetterCase from 'mdi-material-ui/FormatLetterCase'
 
 // ** Type import
-import { VerticalNavItemsType } from 'src/components/@core/layouts/types';
+import { VerticalNavItemsType } from 'src/components/@core/layouts/types'
 
 const navigation = (): VerticalNavItemsType => {
   return [
@@ -79,7 +79,7 @@ const navigation = (): VerticalNavItemsType => {
     //   title: 'Form Layouts',
     //   path: '/form-layouts'
     // }
-  ];
-};
+  ]
+}
 
-export default navigation;
+export default navigation

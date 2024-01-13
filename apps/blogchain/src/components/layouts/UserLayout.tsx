@@ -1,30 +1,30 @@
 // ** React Imports
-import { ReactNode } from 'react';
+import { ReactNode } from 'react'
 
 // ** MUI Imports
-import { Theme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import { Theme } from '@mui/material/styles'
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 // ** Layout Imports
 // !Do not remove this Layout import
-import VerticalLayout from 'src/components/@core/layouts/VerticalLayout';
+import VerticalLayout from 'src/components/@core/layouts/VerticalLayout'
 
 // ** Navigation Imports
-import VerticalNavItems from 'src/components/navigation/vertical';
+import VerticalNavItems from 'src/components/navigation/vertical'
 
 // ** Component Import
-import VerticalAppBarContent from './components/vertical/AppBarContent';
+import VerticalAppBarContent from './components/vertical/AppBarContent'
 
 // ** Hook Import
-import { useSettings } from 'src/components/@core/hooks/useSettings';
+import { useSettings } from 'src/components/@core/hooks/useSettings'
 
 interface Props {
-  children: ReactNode;
+  children: ReactNode
 }
 
 const UserLayout = ({ children }: Props) => {
   // ** Hooks
-  const { settings, saveSettings } = useSettings();
+  const { settings, saveSettings } = useSettings()
 
   /**
    *  The below variable will hide the current layout menu at given screen size.
@@ -34,7 +34,7 @@ const UserLayout = ({ children }: Props) => {
    *  to know more about what values can be passed to this hook.
    *  ! Do not change this value unless you know what you are doing. It can break the template.
    */
-  const hidden = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'));
+  const hidden = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'))
 
   // const UpgradeToProImg = () => {
   //   return (
@@ -71,7 +71,7 @@ const UserLayout = ({ children }: Props) => {
       {children}
       {/* <UpgradeToProButton /> */}
     </VerticalLayout>
-  );
-};
+  )
+}
 
-export default UserLayout;
+export default UserLayout
