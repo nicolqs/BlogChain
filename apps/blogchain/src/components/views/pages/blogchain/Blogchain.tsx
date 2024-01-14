@@ -1,4 +1,5 @@
 import { useState, useEffect, ChangeEvent } from 'react'
+import { ethers } from 'ethers'
 
 // ** MUI Imports
 import Avatar from '@mui/material/Avatar'
@@ -18,14 +19,17 @@ import ShareIcon from '@mui/icons-material/Share'
 import Typography from '@mui/material/Typography'
 
 // ** Web3 Contract
-import { contract } from 'src/configs/web3Config'
+import { contract, provider, signer } from 'src/configs/web3Config'
+
+// ** Actions
+import { getContractTweets, postContractTweet } from 'src/actions/blogchain'
 
 // ** Types
 interface Props {
   tweet: Tweet
 }
 
-interface Tweet {
+export interface Tweet {
   id: number
   author: string
   content: string
@@ -49,7 +53,7 @@ const TweetCard = ({ tweet }: Props) => (
             </Typography>
           </Grid>
         </Grid>
-        <Grid container spacing={2} justifyContent='flex-start' style={{ marginTop: '10px' }}>
+        <Grid container spacing={2} justifyContent='flex-start' sx={{ marginTop: '10px' }}>
           <IconButton aria-label='reply'>
             <ChatBubbleOutlineIcon />
           </IconButton>
@@ -84,39 +88,21 @@ const Blogchain = () => {
     setTweet(event.target.value)
   }
 
-  const saveTweets = (tweets: Tweet) => {
-    const reversedValues = Object.values(tweets).reverse()
-    const orderedTweets: Tweet[] = []
-
-    for (const value of reversedValues) {
-      orderedTweets.push(value)
-    }
-    setTweets(orderedTweets)
+  const saveTweets = (tweets: Tweet[] | undefined) => {
+    if (!tweets) return
+    tweets.sort((a, b) => b.timestamp - a.timestamp)
+    setTweets(tweets)
   }
 
   async function refreshTweets() {
-    try {
-      const tweets = await contract.readTweets()
-      saveTweets(tweets)
-
-      // console.log('Tweets:', tweets)
-    } catch (error) {
-      console.error('Error reading tweets:', error)
-    }
+    await getContractTweets(signer, contract, provider).then(tweets => saveTweets(tweets))
   }
 
   async function postTweet() {
-    try {
-      const tx = await contract.writeTweet(tweet)
-      await tx.wait() // Wait for the transaction to be mined
-
-      // console.log('Tweet written:', tx.hash)
-
-      const tweets = await contract.readTweets()
-      saveTweets(tweets)
-    } catch (error) {
-      console.error('Error reading tweets:', error)
-    }
+    await postContractTweet(contract, tweet).then(() => {
+      setTweet('')
+      refreshTweets()
+    })
   }
 
   return (
@@ -147,7 +133,7 @@ const Blogchain = () => {
                   spacing={2}
                   justifyContent='space-between'
                   alignItems='center'
-                  style={{ marginTop: '10px' }}
+                  sx={{ marginTop: '10px' }}
                 >
                   <Grid item>
                     <IconButton color='primary' aria-label='upload picture'>

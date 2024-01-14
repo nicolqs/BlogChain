@@ -22,4 +22,4 @@ const provider = new ethers.providers.JsonRpcProvider('http://localhost:8545')
 const signer = provider.getSigner()
 const contract = new ethers.Contract(contractAddress.BlogChain, BlogChain.abi, signer)
 
-export { config, contract }
+export { config, contract, provider, signer }

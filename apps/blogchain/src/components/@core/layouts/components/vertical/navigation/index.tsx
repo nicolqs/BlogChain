@@ -105,7 +105,7 @@ const Navigation = (props: Props) => {
     <Drawer {...props}>
       <VerticalNavHeader {...props} />
       <StyledBoxForShadow
-        ref={shadowRef}
+        // ref={shadowRef}
         sx={{
           background: `linear-gradient(${theme.palette.background.default} 40%,${hexToRGBA(
             theme.palette.background.default,
@@ -116,7 +116,7 @@ const Navigation = (props: Props) => {
       <Box sx={{ height: '100%', position: 'relative', overflow: 'hidden' }}>
         {/* @ts-ignore */}
         <ScrollWrapper
-          containerRef={(ref: any) => handleInfiniteScroll(ref)}
+          // containerRef={(ref: any) => handleInfiniteScroll(ref)}
           {...(hidden
             ? {
                 onScroll: (container: any) => scrollMenu(container),
